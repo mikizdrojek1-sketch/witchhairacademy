@@ -1,0 +1,2267 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Witch Hair Academy | Akademia Fryzjerska</title>
+  <meta name="description" content="Witch Hair Academy w Helmond. Profesjonalne szkolenia fryzjerskie, które łączą technikę, pasję i styl. Zapisz się na szkolenie i zacznij tworzyć piękno zawodowo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f8f4f8;
+      --bg-soft:#f3edf5;
+      --bg-white:#ffffff;
+      --panel:#fbf8fb;
+      --text:#19151c;
+      --muted:#6d6473;
+      --line:rgba(90,55,106,.16);
+      --line-strong:rgba(90,55,106,.28);
+      --primary:#6f2c80;
+      --primary-2:#834395;
+      --primary-3:#a76bb6;
+      --dark:#2e1736;
+      --shadow:0 24px 70px rgba(65, 31, 77, 0.08);
+      --shadow-soft:0 16px 40px rgba(65, 31, 77, 0.05);
+      --section-pad:110px;
+      --container:1320px;
+      --grid-gap:28px;
+      --transition:all .32s ease;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      border-radius:0 !important;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:
+        linear-gradient(180deg, rgba(111,44,128,.035), transparent 240px),
+        linear-gradient(90deg, rgba(111,44,128,.015), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button{
+      font:inherit;
+      background:none;
+      border:none;
+      cursor:pointer;
+    }
+
+    .container{
+      width:min(calc(100% - 48px), var(--container));
+      margin:0 auto;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--primary);
+      margin-bottom:18px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:54px;
+      height:1px;
+      background:var(--primary);
+      display:block;
+    }
+
+    .section{
+      padding:var(--section-pad) 0;
+      position:relative;
+    }
+
+    .section-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.5rem,4vw,4.7rem);
+      line-height:.95;
+      font-weight:600;
+      letter-spacing:-.03em;
+      margin-bottom:18px;
+      color:var(--dark);
+    }
+
+    .section-subtitle{
+      max-width:840px;
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.8;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:48px;
+      align-items:center;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:var(--grid-gap);
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:var(--grid-gap);
+    }
+
+    .site-frame{
+      position:relative;
+      isolation:isolate;
+    }
+
+    .site-frame::before{
+      content:"";
+      position:fixed;
+      inset:18px;
+      border:1px solid rgba(111,44,128,.11);
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    .topbar{
+      background:linear-gradient(90deg, var(--dark), #4a2258);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+
+    .topbar-inner{
+      min-height:48px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      font-size:.86rem;
+      color:rgba(255,255,255,.86);
+    }
+
+    .topbar-left,
+    .topbar-right{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .topbar strong{
+      color:#fff;
+      font-weight:600;
+    }
+
+    .navbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(16px);
+      background:rgba(248,244,248,.88);
+      border-bottom:1px solid rgba(111,44,128,.12);
+    }
+
+    .nav-inner{
+      min-height:96px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-width:0;
+    }
+
+    .brand img{
+      width:168px;
+      height:auto;
+      object-fit:contain;
+    }
+
+    .brand-copy{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+
+    .brand-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+      color:var(--dark);
+      font-weight:700;
+      letter-spacing:-.03em;
+    }
+
+    .brand-sub{
+      font-size:.82rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-top:8px;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:34px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .nav-links a{
+      font-size:.95rem;
+      font-weight:600;
+      color:#3a2d40;
+      position:relative;
+      transition:var(--transition);
+    }
+
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0;
+      height:1px;
+      background:var(--primary);
+      transition:var(--transition);
+    }
+
+    .nav-links a:hover{
+      color:var(--primary);
+    }
+
+    .nav-links a:hover::after{
+      width:100%;
+    }
+
+    .nav-cta{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      min-height:58px;
+      padding:0 28px;
+      font-weight:700;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:.83rem;
+      transition:var(--transition);
+      border:1px solid transparent;
+      white-space:nowrap;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--primary), var(--primary-2));
+      color:#fff;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 20px 40px rgba(111,44,128,.18);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:var(--dark);
+      border-color:var(--line-strong);
+    }
+
+    .btn-secondary:hover{
+      background:#fff;
+      border-color:var(--primary);
+      color:var(--primary);
+    }
+
+    .hero{
+      padding:48px 0 70px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      right:-140px;
+      top:-120px;
+      width:560px;
+      height:560px;
+      background:radial-gradient(circle, rgba(111,44,128,.12), transparent 62%);
+      pointer-events:none;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:-170px;
+      bottom:-170px;
+      width:520px;
+      height:520px;
+      background:radial-gradient(circle, rgba(167,107,182,.12), transparent 60%);
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:48px;
+      align-items:stretch;
+    }
+
+    .hero-left{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:40px 0;
+    }
+
+    .hero-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(3.7rem,7vw,7.3rem);
+      line-height:.88;
+      font-weight:600;
+      letter-spacing:-.05em;
+      color:var(--dark);
+      margin-bottom:24px;
+      max-width:900px;
+    }
+
+    .hero-title .accent{
+      color:var(--primary);
+    }
+
+    .hero-text{
+      max-width:740px;
+      font-size:1.08rem;
+      line-height:1.9;
+      color:var(--muted);
+      margin-bottom:34px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:40px;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:16px;
+      max-width:900px;
+    }
+
+    .hero-point{
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(111,44,128,.12);
+      padding:22px 20px;
+      min-height:122px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .hero-point strong{
+      display:block;
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+      color:var(--primary);
+      margin-bottom:8px;
+      line-height:1;
+    }
+
+    .hero-point span{
+      color:#4c4151;
+      font-size:.95rem;
+      line-height:1.6;
+    }
+
+    .hero-right{
+      position:relative;
+      display:grid;
+      grid-template-columns:1fr;
+      grid-template-rows:auto auto;
+      gap:18px;
+      align-self:stretch;
+    }
+
+    .hero-main{
+      min-height:720px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(111,44,128,.15);
+      box-shadow:var(--shadow);
+      background:#eee;
+    }
+
+    .hero-main img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .hero-main::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(46,23,54,.18)),
+        linear-gradient(90deg, rgba(111,44,128,.06), transparent 60%);
+    }
+
+    .hero-floating{
+      position:absolute;
+      left:-42px;
+      bottom:42px;
+      width:280px;
+      background:rgba(255,255,255,.95);
+      border:1px solid rgba(111,44,128,.16);
+      box-shadow:var(--shadow);
+      padding:26px 24px;
+      z-index:3;
+    }
+
+    .hero-floating-label{
+      font-size:.75rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--primary);
+      margin-bottom:10px;
+      font-weight:700;
+    }
+
+    .hero-floating-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+      color:var(--dark);
+      line-height:1;
+      margin-bottom:12px;
+    }
+
+    .hero-floating p{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:.95rem;
+    }
+
+    .hero-badge-row{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+    }
+
+    .mini-panel{
+      background:#fff;
+      border:1px solid rgba(111,44,128,.12);
+      padding:26px;
+      box-shadow:var(--shadow-soft);
+      min-height:160px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .mini-panel small{
+      font-size:.76rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--primary);
+      font-weight:700;
+      display:block;
+      margin-bottom:12px;
+    }
+
+    .mini-panel h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+      line-height:1;
+      margin-bottom:10px;
+      color:var(--dark);
+    }
+
+    .mini-panel p{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:.95rem;
+    }
+
+    .logo-strip{
+      padding:22px 0;
+      border-top:1px solid rgba(111,44,128,.1);
+      border-bottom:1px solid rgba(111,44,128,.1);
+      background:rgba(255,255,255,.65);
+      overflow:hidden;
+    }
+
+    .logo-strip-track{
+      display:flex;
+      gap:58px;
+      white-space:nowrap;
+      animation:marquee 32s linear infinite;
+      min-width:max-content;
+      color:#5e5262;
+      font-size:.9rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+
+    @keyframes marquee{
+      from{transform:translateX(0);}
+      to{transform:translateX(-50%);}
+    }
+
+    .intro-panels{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:28px;
+      margin-top:48px;
+    }
+
+    .statement{
+      background:#fff;
+      border:1px solid rgba(111,44,128,.12);
+      padding:42px;
+      box-shadow:var(--shadow-soft);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .statement::after{
+      content:"";
+      position:absolute;
+      right:-40px;
+      top:-40px;
+      width:160px;
+      height:160px;
+      border:1px solid rgba(111,44,128,.12);
+      opacity:.55;
+    }
+
+    .statement blockquote{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2rem,3vw,3.2rem);
+      line-height:1.02;
+      color:var(--dark);
+      letter-spacing:-.03em;
+      margin-bottom:22px;
+      max-width:820px;
+    }
+
+    .statement p{
+      color:var(--muted);
+      line-height:1.9;
+      max-width:760px;
+    }
+
+    .contact-card{
+      background:linear-gradient(180deg, #fff, #faf7fb);
+      border:1px solid rgba(111,44,128,.12);
+      padding:40px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .contact-list{
+      display:grid;
+      gap:16px;
+      margin:26px 0 30px;
+    }
+
+    .contact-item{
+      padding:0 0 14px;
+      border-bottom:1px solid rgba(111,44,128,.1);
+    }
+
+    .contact-item span{
+      display:block;
+      font-size:.76rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--primary);
+      margin-bottom:8px;
+      font-weight:700;
+    }
+
+    .contact-item strong,
+    .contact-item a{
+      font-size:1rem;
+      color:var(--dark);
+      line-height:1.6;
+      font-weight:600;
+    }
+
+    .split-image{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:26px;
+      align-items:stretch;
+      margin-top:70px;
+    }
+
+    .portrait-stack{
+      display:grid;
+      gap:18px;
+    }
+
+    .portrait-large,
+    .portrait-small,
+    .vision-image,
+    .gallery-item,
+    .story-card,
+    .reason-card,
+    .training-card,
+    .testimonial,
+    .price-note,
+    .faq-item,
+    .contact-panel,
+    .map-wrap,
+    .cta-band,
+    .cta-panel{
+      border:1px solid rgba(111,44,128,.12);
+      background:#fff;
+      overflow:hidden;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .portrait-large{
+      min-height:630px;
+    }
+
+    .portrait-large img,
+    .portrait-small img,
+    .vision-image img,
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .portrait-small{
+      min-height:250px;
+    }
+
+    .vision-wrap{
+      display:grid;
+      gap:18px;
+      grid-template-columns:1fr;
+    }
+
+    .vision-copy{
+      background:#fff;
+      border:1px solid rgba(111,44,128,.12);
+      padding:42px;
+      box-shadow:var(--shadow-soft);
+      min-height:100%;
+    }
+
+    .vision-copy h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:3rem;
+      line-height:.98;
+      letter-spacing:-.03em;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .vision-copy p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:16px;
+    }
+
+    .vision-image{
+      min-height:370px;
+    }
+
+    .reasons-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      margin-top:54px;
+    }
+
+    .reason-card{
+      padding:34px 30px 30px;
+      position:relative;
+      min-height:300px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+    }
+
+    .reason-number{
+      font-family:'Cormorant Garamond',serif;
+      font-size:4rem;
+      line-height:.8;
+      color:rgba(111,44,128,.15);
+      margin-bottom:16px;
+    }
+
+    .reason-card h4{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+      line-height:1;
+      margin-bottom:14px;
+      color:var(--dark);
+    }
+
+    .reason-card p{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:.98rem;
+    }
+
+    .story-layout{
+      display:grid;
+      grid-template-columns:.85fr 1.15fr;
+      gap:28px;
+      margin-top:60px;
+      align-items:start;
+    }
+
+    .story-card{
+      padding:42px;
+      min-height:100%;
+      background:linear-gradient(180deg, #fff, #faf6fb);
+    }
+
+    .story-card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:3rem;
+      line-height:.96;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .story-card p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:16px;
+    }
+
+    .story-highlights{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .story-highlight{
+      border:1px solid rgba(111,44,128,.12);
+      padding:26px;
+      background:rgba(255,255,255,.8);
+      min-height:170px;
+    }
+
+    .story-highlight span{
+      display:block;
+      font-size:.75rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--primary);
+      margin-bottom:10px;
+      font-weight:700;
+    }
+
+    .story-highlight strong{
+      display:block;
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+      color:var(--dark);
+      line-height:1;
+      margin-bottom:12px;
+    }
+
+    .story-highlight p{
+      color:var(--muted);
+      line-height:1.75;
+      font-size:.95rem;
+    }
+
+    .training-wrap{
+      margin-top:60px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .training-card{
+      padding:34px 30px 32px;
+      display:flex;
+      flex-direction:column;
+      min-height:430px;
+      position:relative;
+      background:linear-gradient(180deg, #ffffff, #faf6fb);
+    }
+
+    .training-top{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:flex-start;
+      margin-bottom:20px;
+    }
+
+    .training-badge{
+      font-size:.72rem;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--primary);
+    }
+
+    .training-index{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2.6rem;
+      line-height:.8;
+      color:rgba(111,44,128,.18);
+    }
+
+    .training-card h4{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2.2rem;
+      line-height:1;
+      color:var(--dark);
+      margin-bottom:14px;
+    }
+
+    .training-card p{
+      color:var(--muted);
+      line-height:1.85;
+      font-size:.98rem;
+      margin-bottom:24px;
+    }
+
+    .training-list{
+      display:grid;
+      gap:12px;
+      margin-top:auto;
+    }
+
+    .training-list li{
+      list-style:none;
+      color:#4b4250;
+      line-height:1.65;
+      padding-left:18px;
+      position:relative;
+      font-size:.95rem;
+    }
+
+    .training-list li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.7em;
+      width:8px;
+      height:1px;
+      background:var(--primary);
+    }
+
+    .premium-band{
+      margin-top:36px;
+      padding:26px 34px;
+      background:linear-gradient(90deg, #fff, #f7f0f9);
+      border:1px solid rgba(111,44,128,.14);
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    .premium-band h5{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+      color:var(--dark);
+      line-height:1;
+      margin-bottom:6px;
+    }
+
+    .premium-band p{
+      color:var(--muted);
+      line-height:1.75;
+      max-width:760px;
+    }
+
+    .gallery-head{
+      display:flex;
+      justify-content:space-between;
+      gap:26px;
+      align-items:flex-end;
+      flex-wrap:wrap;
+      margin-bottom:38px;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr .85fr 1.15fr;
+      grid-auto-rows:250px;
+      gap:18px;
+    }
+
+    .gallery-item{
+      position:relative;
+      background:#ece6ef;
+    }
+
+    .gallery-item.tall{
+      grid-row:span 2;
+    }
+
+    .gallery-item.wide{
+      grid-column:span 2;
+    }
+
+    .gallery-item::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(46,23,54,.1));
+      pointer-events:none;
+      transition:var(--transition);
+    }
+
+    .gallery-item:hover::after{
+      background:linear-gradient(180deg, rgba(111,44,128,.08), rgba(46,23,54,.2));
+    }
+
+    .results{
+      background:linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.85));
+      border-top:1px solid rgba(111,44,128,.09);
+      border-bottom:1px solid rgba(111,44,128,.09);
+    }
+
+    .results-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin-top:46px;
+    }
+
+    .result-card{
+      background:#fff;
+      border:1px solid rgba(111,44,128,.12);
+      padding:34px 28px;
+      box-shadow:var(--shadow-soft);
+      min-height:220px;
+    }
+
+    .result-card strong{
+      display:block;
+      font-family:'Cormorant Garamond',serif;
+      font-size:3rem;
+      line-height:.9;
+      color:var(--primary);
+      margin-bottom:12px;
+    }
+
+    .result-card h4{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.9rem;
+      line-height:1;
+      color:var(--dark);
+      margin-bottom:10px;
+    }
+
+    .result-card p{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:.96rem;
+    }
+
+    .testimonials-wrap{
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .testimonial{
+      padding:34px 30px;
+      min-height:310px;
+      background:linear-gradient(180deg, #ffffff, #fbf8fb);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .testimonial-mark{
+      font-family:'Cormorant Garamond',serif;
+      font-size:4rem;
+      line-height:.7;
+      color:rgba(111,44,128,.18);
+      margin-bottom:14px;
+    }
+
+    .testimonial p{
+      color:#4b4250;
+      line-height:1.9;
+      font-size:1rem;
+      margin-bottom:26px;
+    }
+
+    .testimonial strong{
+      display:block;
+      color:var(--dark);
+      font-size:1rem;
+      font-weight:700;
+    }
+
+    .testimonial span{
+      display:block;
+      color:var(--primary);
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-size:.72rem;
+      margin-top:8px;
+      font-weight:800;
+    }
+
+    .price-section{
+      position:relative;
+    }
+
+    .price-layout{
+      margin-top:56px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .price-note{
+      padding:44px;
+      background:linear-gradient(180deg, #ffffff, #faf5fb);
+      min-height:100%;
+    }
+
+    .price-note h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:3rem;
+      line-height:.96;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .price-note p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:16px;
+    }
+
+    .price-note ul{
+      display:grid;
+      gap:14px;
+      margin:24px 0 30px;
+    }
+
+    .price-note li{
+      list-style:none;
+      color:#4b4250;
+      line-height:1.75;
+      padding-left:18px;
+      position:relative;
+    }
+
+    .price-note li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.7em;
+      width:8px;
+      height:1px;
+      background:var(--primary);
+    }
+
+    .faq-grid{
+      display:grid;
+      gap:18px;
+      align-content:start;
+    }
+
+    .faq-item{
+      background:#fff;
+    }
+
+    .faq-question{
+      width:100%;
+      padding:24px 26px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      text-align:left;
+      font-weight:700;
+      color:var(--dark);
+      font-size:1rem;
+    }
+
+    .faq-question span:last-child{
+      font-size:1.2rem;
+      color:var(--primary);
+      min-width:24px;
+      text-align:right;
+    }
+
+    .faq-answer{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .35s ease;
+      color:var(--muted);
+      line-height:1.85;
+      padding:0 26px;
+    }
+
+    .faq-item.active .faq-answer{
+      max-height:220px;
+      padding:0 26px 24px;
+    }
+
+    .faq-item.active .faq-question{
+      border-bottom:1px solid rgba(111,44,128,.1);
+    }
+
+    .cta-band{
+      margin-top:40px;
+      background:linear-gradient(90deg, var(--dark), #5a2a67 56%, #7a3e8c);
+      color:#fff;
+      padding:42px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:26px;
+      align-items:center;
+    }
+
+    .cta-band h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:3.1rem;
+      line-height:.94;
+      margin-bottom:12px;
+      color:#fff;
+    }
+
+    .cta-band p{
+      color:rgba(255,255,255,.82);
+      line-height:1.9;
+      max-width:760px;
+    }
+
+    .cta-band .btn-primary{
+      background:#fff;
+      color:var(--dark);
+      box-shadow:none;
+    }
+
+    .cta-band .btn-secondary{
+      border-color:rgba(255,255,255,.22);
+      color:#fff;
+    }
+
+    .contact-section{
+      padding-top:110px;
+    }
+
+    .contact-layout{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:28px;
+      margin-top:54px;
+      align-items:stretch;
+    }
+
+    .contact-panel{
+      padding:42px;
+      background:linear-gradient(180deg,#fff,#faf6fb);
+      min-height:100%;
+    }
+
+    .contact-panel h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:3rem;
+      line-height:.96;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .contact-panel p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:24px;
+    }
+
+    .contact-details{
+      display:grid;
+      gap:18px;
+      margin-bottom:28px;
+    }
+
+    .contact-box{
+      padding:18px 0;
+      border-bottom:1px solid rgba(111,44,128,.1);
+    }
+
+    .contact-box span{
+      display:block;
+      font-size:.74rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--primary);
+      margin-bottom:8px;
+      font-weight:800;
+    }
+
+    .contact-box strong,
+    .contact-box a{
+      font-size:1rem;
+      line-height:1.7;
+      color:var(--dark);
+      font-weight:600;
+    }
+
+    .contact-mini-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:22px;
+    }
+
+    .contact-mini{
+      padding:18px;
+      border:1px solid rgba(111,44,128,.12);
+      background:rgba(255,255,255,.75);
+      min-height:120px;
+    }
+
+    .contact-mini strong{
+      display:block;
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.8rem;
+      color:var(--dark);
+      margin-bottom:8px;
+      line-height:1;
+    }
+
+    .contact-mini p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:.95rem;
+    }
+
+    .map-wrap{
+      position:relative;
+      min-height:100%;
+      background:#ece7ef;
+    }
+
+    .map-wrap iframe{
+      width:100%;
+      height:100%;
+      min-height:650px;
+      border:0;
+      filter:grayscale(.12) contrast(1.02);
+    }
+
+    .footer{
+      padding:32px 0 42px;
+      border-top:1px solid rgba(111,44,128,.1);
+      background:rgba(255,255,255,.7);
+      margin-top:90px;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      align-items:center;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .footer-brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      color:var(--dark);
+      font-weight:700;
+    }
+
+    .footer-brand img{
+      width:86px;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(26px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .mobile-toggle{
+      display:none;
+      width:54px;
+      height:54px;
+      border:1px solid rgba(111,44,128,.15);
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+    }
+
+    .mobile-toggle span{
+      width:20px;
+      height:1px;
+      background:var(--dark);
+      position:relative;
+      display:block;
+    }
+
+    .mobile-toggle span::before,
+    .mobile-toggle span::after{
+      content:"";
+      position:absolute;
+      left:0;
+      width:100%;
+      height:1px;
+      background:var(--dark);
+    }
+
+    .mobile-toggle span::before{ top:-6px; }
+    .mobile-toggle span::after{ top:6px; }
+
+    @media (max-width: 1180px){
+      .hero-grid,
+      .grid-2,
+      .intro-panels,
+      .split-image,
+      .story-layout,
+      .price-layout,
+      .contact-layout,
+      .cta-band{
+        grid-template-columns:1fr;
+      }
+
+      .hero-main{
+        min-height:580px;
+      }
+
+      .hero-floating{
+        position:relative;
+        left:auto;
+        bottom:auto;
+        width:auto;
+        margin-top:18px;
+      }
+
+      .reasons-grid,
+      .training-wrap,
+      .results-grid,
+      .testimonials-wrap{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .gallery-item.wide{
+        grid-column:span 1;
+      }
+
+      .nav-links{
+        display:none;
+        position:absolute;
+        left:24px;
+        right:24px;
+        top:96px;
+        padding:22px;
+        background:#fff;
+        border:1px solid rgba(111,44,128,.14);
+        box-shadow:var(--shadow);
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+      }
+
+      .nav-links.active{
+        display:flex;
+      }
+
+      .mobile-toggle{
+        display:inline-flex;
+      }
+
+      .nav-cta .btn-secondary{
+        display:none;
+      }
+    }
+
+    @media (max-width: 760px){
+      :root{
+        --section-pad:82px;
+      }
+
+      .container{
+        width:min(calc(100% - 28px), var(--container));
+      }
+
+      .topbar-inner{
+        padding:10px 0;
+      }
+
+      .topbar-left,
+      .topbar-right{
+        gap:10px 16px;
+      }
+
+      .brand img{
+        width:122px;
+      }
+
+      .brand-title{
+        font-size:1.45rem;
+      }
+
+      .nav-inner{
+        min-height:82px;
+      }
+
+      .hero{
+        padding-top:24px;
+      }
+
+      .hero-title{
+        font-size:3.25rem;
+      }
+
+      .hero-point{
+        min-height:auto;
+      }
+
+      .hero-points,
+      .hero-badge-row,
+      .reasons-grid,
+      .training-wrap,
+      .results-grid,
+      .testimonials-wrap,
+      .gallery-grid,
+      .story-highlights,
+      .contact-mini-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-main{
+        min-height:460px;
+      }
+
+      .statement,
+      .contact-card,
+      .vision-copy,
+      .story-card,
+      .training-card,
+      .testimonial,
+      .price-note,
+      .contact-panel,
+      .cta-band{
+        padding:30px 22px;
+      }
+
+      .gallery-grid{
+        grid-auto-rows:240px;
+      }
+
+      .gallery-item.tall{
+        grid-row:span 1;
+      }
+
+      .cta-band{
+        gap:20px;
+      }
+
+      .section-title{
+        font-size:2.6rem;
+      }
+
+      .cta-band h3,
+      .contact-panel h3,
+      .price-note h3,
+      .story-card h3,
+      .vision-copy h3{
+        font-size:2.35rem;
+      }
+
+      .map-wrap iframe{
+        min-height:420px;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-frame">
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-left">
+          <div><strong>Witch Hair Academy</strong> · Akademia fryzjerska w Helmond</div>
+          <div>100% poleca · 11 opinii</div>
+        </div>
+        <div class="topbar-right">
+          <a href="tel:+31615295072">+31 6 15295072</a>
+          <a href="#kontakt">Zapisz się na szkolenie</a>
+        </div>
+      </div>
+    </div>
+
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a href="#" class="brand">
+          <img src="https://scontent.fgrq1-1.fna.fbcdn.net/v/t39.30808-6/649700960_892878990176700_1598060437175543899_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=2a1932&_nc_ohc=XepxeuOSV9IQ7kNvwGBMbTF&_nc_oc=AdoWpBTTqTvJWr8MiYdC3ioZC-Vy6gWwxNzlP-zMqLNcOqwiB0TQ3nDRRx-5F94LE6Q&_nc_zt=23&_nc_ht=scontent.fgrq1-1.fna&_nc_gid=biK3RTxxyrMw3RIv7QkP1g&_nc_ss=7a30f&oh=00_Afz7Df7PU-RphD_27V8Th7coU8twxMgMwjQpj92nXWUjJw&oe=69C320F0" alt="Witch Hair Academy logo">
+          <div class="brand-copy">
+            <span class="brand-title">Witch Hair Academy</span>
+            <span class="brand-sub">Technika · Pasja · Styl</span>
+          </div>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+          <a href="#o-nas">O akademii</a>
+          <a href="#dlaczego-my">Dlaczego my</a>
+          <a href="#szkolenia">Szkolenia</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#opinie">Opinie</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a href="tel:+31615295072" class="btn btn-secondary">Zadzwoń</a>
+          <a href="#kontakt" class="btn btn-primary">Zapisz się</a>
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left reveal">
+          <div class="eyebrow">Akademia fryzjerska · Helmond</div>
+          <h1 class="hero-title">
+            Tu zaczyna się <span class="accent">Twoja magia</span> we fryzjerstwie.
+          </h1>
+          <p class="hero-text">
+            Nie każdy kurs daje pewność. Nie każde szkolenie daje odwagę. Nie każde miejsce potrafi naprawdę wydobyć talent. 
+            <strong>Witch Hair Academy</strong> powstała dla osób, które czują, że fryzjerstwo może być czymś większym niż zawodem —
+            może być stylem życia, drogą do niezależności i sztuką, dzięki której tworzysz piękno własnymi rękami.
+            Uczymy tak, żebyś po wyjściu czuła nie tylko inspirację, ale też realne umiejętności, z którymi można wejść na wyższy poziom.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#kontakt" class="btn btn-primary">Zapisz się na szkolenie</a>
+            <a href="#szkolenia" class="btn btn-secondary">Zobacz ofertę szkoleń</a>
+          </div>
+
+          <div class="hero-points">
+            <div class="hero-point">
+              <strong>11 opinii</strong>
+              <span>100% poleca akademię i atmosferę nauki, która daje motywację do działania.</span>
+            </div>
+            <div class="hero-point">
+              <strong>Helmond</strong>
+              <span>Dogodna lokalizacja przy Stationsplein 6 dla osób z regionu i okolic.</span>
+            </div>
+            <div class="hero-point">
+              <strong>Premium</strong>
+              <span>Jasna, kobieca i elegancka przestrzeń stworzona do nauki jakościowego fryzjerstwa.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right reveal">
+          <div class="hero-main">
+            <img src="https://scontent.fgrq1-1.fna.fbcdn.net/v/t39.30808-6/471495874_18450050605071261_3953074190019121037_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=13d280&_nc_ohc=aMlidk0eMgUQ7kNvwH-oFw6&_nc_oc=AdrhuUnKbWa3T_YQLRZ6m-Txed_fhADEHy-ls4W_I_sMdZUF6ymdXMBBEiJaXzTVLDk&_nc_zt=23&_nc_ht=scontent.fgrq1-1.fna&_nc_gid=VVMvyZNGaFImPEzfyu7vkg&_nc_ss=7a30f&oh=00_AfwGSl_aFC10FibNauUeWGqo9tsagNji9X6-Zb9xZVkJqA&oe=69C30511" alt="Witch Hair Academy hero">
+            <div class="hero-floating">
+              <div class="hero-floating-label">Zapisy trwają</div>
+              <div class="hero-floating-title">Rozwijaj talent, który może zmienić Twoje życie</div>
+              <p>
+                To miejsce dla osób początkujących i ambitnych, które chcą nauczyć się fryzjerstwa na poziomie premium
+                i poczuć, że ich praca ma styl, wartość i charakter.
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-badge-row">
+            <div class="mini-panel">
+              <div>
+                <small>Filozofia nauki</small>
+                <h3>Technika + serce</h3>
+                <p>Uczymy z wyczuciem estetyki, ale też z naciskiem na praktykę, pewność i powtarzalny efekt.</p>
+              </div>
+            </div>
+            <div class="mini-panel">
+              <div>
+                <small>Dla kogo</small>
+                <h3>Od pasji do zawodu</h3>
+                <p>Jeżeli chcesz wejść do branży albo rozwinąć swój poziom, jesteś w odpowiednim miejscu.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="logo-strip">
+      <div class="logo-strip-track">
+        <span>szkolenia fryzjerskie</span>
+        <span>technika</span>
+        <span>pasja</span>
+        <span>styl</span>
+        <span>premium education</span>
+        <span>witch hair academy</span>
+        <span>helmond</span>
+        <span>beauty education</span>
+        <span>szkolenia fryzjerskie</span>
+        <span>technika</span>
+        <span>pasja</span>
+        <span>styl</span>
+        <span>premium education</span>
+        <span>witch hair academy</span>
+        <span>helmond</span>
+        <span>beauty education</span>
+      </div>
+    </div>
+
+    <section class="section" id="o-nas">
+      <div class="container">
+        <div class="intro-panels">
+          <div class="statement reveal">
+            <div class="eyebrow">Witch Hair Academy</div>
+            <blockquote>
+              Fryzjerstwo to nie tylko usługa. To emocja, estetyka, pewność siebie i efekt, który ktoś nosi na sobie każdego dnia.
+            </blockquote>
+            <p>
+              Dlatego w naszej akademii nie uczymy mechanicznie. Pokazujemy, jak patrzeć na włosy, jak budować formę,
+              jak pracować z dokładnością i jak tworzyć rezultat, który zachwyca. Chcemy, żebyś nie tylko poznała technikę,
+              ale też zrozumiała, dlaczego dobry fryzjer wyróżnia się od pierwszego ruchu nożyczek po finalny detal.
+            </p>
+          </div>
+
+          <div class="contact-card reveal">
+            <div>
+              <div class="eyebrow">Szybki kontakt</div>
+              <h2 class="section-title" style="font-size:3.2rem; margin-bottom:10px;">Dołącz do świata Witch Hair</h2>
+              <p class="section-subtitle" style="max-width:none;">
+                Jeśli czujesz, że ten kierunek jest dla Ciebie, nie odkładaj tego. Każdy dzień zwłoki to kolejny dzień,
+                w którym nie rozwijasz swojego talentu.
+              </p>
+              <div class="contact-list">
+                <div class="contact-item">
+                  <span>Telefon</span>
+                  <a href="tel:+31615295072">+31 6 15295072</a>
+                </div>
+                <div class="contact-item">
+                  <span>Adres</span>
+                  <strong>Stationsplein 6, Helmond, Netherlands</strong>
+                </div>
+                <div class="contact-item">
+                  <span>Ocena</span>
+                  <strong>100% poleca · 11 opinii</strong>
+                </div>
+              </div>
+            </div>
+            <a href="#kontakt" class="btn btn-primary">Chcę się zapisać</a>
+          </div>
+        </div>
+
+        <div class="split-image">
+          <div class="portrait-stack reveal">
+            <div class="portrait-large">
+              <img src="https://scontent.fgrq1-1.fna.fbcdn.net/v/t39.30808-6/622749777_858370890294177_6522056010892301192_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=gHVwJu4UBKsQ7kNvwGuq4TX&_nc_oc=AdoqXSno3jRxDdf7cLs4klLksvzXh2gZwSt7Qr3VUeZMrNwP_roL_NJFDrFXWF8_p3E&_nc_zt=23&_nc_ht=scontent.fgrq1-1.fna&_nc_gid=pvzAb9bDAh9UpedbC6Ppeg&_nc_ss=7a30f&oh=00_AfxeE2VWBcqVOVMOj_eEhi3cwuhJu4fiR2t4694HG--sgw&oe=69C30107" alt="Szkolenie fryzjerskie Witch Hair Academy">
+            </div>
+            <div class="portrait-small">
+              <img src="https://scontent.fgrq1-1.fna.fbcdn.net/v/t39.30808-6/480254062_599655736165695_1969404435064918563_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=nn7tKYWSWdoQ7kNvwGHcO82&_nc_oc=AdpGb-4jLXYCLLt4SkDtiU23kfHudVebJ0WZJU5ZluYqYoMLOp7EnQV_t4EtrUFy56w&_nc_zt=23&_nc_ht=scontent.fgrq1-1.fna&_nc_gid=gkAzeHD1FR_mrI5teMNxbQ&_nc_ss=7a30f&oh=00_AfyZhNs_Go-3CrtgCSk7ZLpFk6SRT6C7cgm_ZktGqcC_uA&oe=69C33212" alt="Efekty pracy fryzjerskiej">
+            </div>
+          </div>
+
+          <div class="vision-wrap reveal">
+            <div class="vision-copy">
+              <div class="eyebrow">Nasza wizja</div>
+              <h3>Tworzymy fryzjerów, którzy przyciągają stylem, jakością i pewnością siebie</h3>
+              <p>
+                Dobre szkolenie nie kończy się na pokazie. Ono zmienia sposób myślenia. W Witch Hair Academy stawiamy
+                na rozwój, który czuć od razu — w ruchu dłoni, w patrzeniu na detal, w odwadze do pracy z klientem
+                i w świadomości, że robisz coś naprawdę profesjonalnie.
+              </p>
+              <p>
+                Nasze podejście łączy estetykę, technikę i atmosferę, dzięki której nauka nie jest stresująca,
+                tylko inspirująca. Chcemy, żeby każda osoba wychodziła stąd z przekonaniem:
+                <strong>„umiem więcej, widzę więcej i mogę wejść na wyższy poziom”.</strong>
+              </p>
+            </div>
+            <div class="vision-image">
+              <img src="https://scontent.fgrq1-1.fna.fbcdn.net/v/t39.30808-6/480492680_599655572832378_8182217783531658243_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=O0oxfF3CJEMQ7kNvwHecsK3&_nc_oc=AdpdWNT0z4i_yvNM6poryASb6Smf5d2Gik8DP-xQdm9Rqn_QFwb1BYJE6ipHpQiasZ8&_nc_zt=23&_nc_ht=scontent.fgrq1-1.fna&_nc_gid=bJcnbLCif9HVM_dqIBTITQ&_nc_ss=7a30f&oh=00_Afyor-YbxiTLOZb4pCVx0Hcg-Z3po9PDD0BPt9QHF-24Aw&oe=69C30E9C" alt="Przestrzeń akademii fryzjerskiej">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="dlaczego-my">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Dlaczego właśnie my</div>
+          <h2 class="section-title">Bo talent potrzebuje miejsca, które traktuje go poważnie</h2>
+          <p class="section-subtitle">
+            W branży beauty liczy się nie tylko to, czego się uczysz, ale też gdzie i od kogo. 
+            Witch Hair Academy to przestrzeń, w której jakość nie jest dodatkiem — jest standardem od pierwszego kontaktu.
+          </p>
+        </div>
+
+        <div class="reasons-grid">
+          <article class="reason-card reveal">
+            <div class="reason-number">01</div>
+            <h4>Nowoczesne podejście</h4>
+            <p>
+              Uczymy fryzjerstwa, które odpowiada na dzisiejsze oczekiwania klientek i klientów — świadomie, estetycznie
+              i z naciskiem na efekt premium.
+            </p>
+          </article>
+
+          <article class="reason-card reveal">
+            <div class="reason-number">02</div>
+            <h4>Praktyka, nie teoria dla teorii</h4>
+            <p>
+              Stawiamy na realne umiejętności, które można wykorzystać od razu. Chodzi o to, żebyś po szkoleniu umiała działać,
+              a nie tylko wiedziała „jak to wygląda”.
+            </p>
+          </article>
+
+          <article class="reason-card reveal">
+            <div class="reason-number">03</div>
+            <h4>Estetyka i precyzja</h4>
+            <p>
+              Fryzjerstwo to zawód techniczny, ale też wizualny. U nas uczysz się patrzeć na całość — formę, proporcje, linię i detal.
+            </p>
+          </article>
+
+          <article class="reason-card reveal">
+            <div class="reason-number">04</div>
+            <h4>Atmosfera, która buduje pewność</h4>
+            <p>
+              Nauka jest łatwiejsza, kiedy czujesz wsparcie i motywację. Tworzymy środowisko, w którym można rosnąć bez spięcia,
+              ale z wysokim poziomem.
+            </p>
+          </article>
+
+          <article class="reason-card reveal">
+            <div class="reason-number">05</div>
+            <h4>Miejsce z charakterem</h4>
+            <p>
+              Jasny, kobiecy, elegancki klimat naszej marki od razu buduje odpowiednie odczucie jakości. To ważne,
+              bo wielkie rzeczy zaczynają się od właściwej energii.
+            </p>
+          </article>
+
+          <article class="reason-card reveal">
+            <div class="reason-number">06</div>
+            <h4>Poczucie kierunku</h4>
+            <p>
+              Nie zostajesz z chaosem. Pokazujemy drogę rozwoju i sposób myślenia, który pomaga wejść do branży albo wejść na wyższy poziom.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section results">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Co zyskujesz</div>
+          <h2 class="section-title">To szkolenie ma dać Ci więcej niż chwilową motywację</h2>
+          <p class="section-subtitle">
+            Celem nie jest tylko „fajny dzień na kursie”. Celem jest zmiana jakości Twojej pracy, Twojej odwagi i Twojego poziomu.
+          </p>
+        </div>
+
+        <div class="results-grid">
+          <div class="result-card reveal">
+            <strong>+ Pewność</strong>
+            <h4>Praca bez chaosu</h4>
+            <p>Wiesz, co robisz, dlaczego to robisz i jak dojść do efektu, który naprawdę wygląda profesjonalnie.</p>
+          </div>
+
+          <div class="result-card reveal">
+            <strong>+ Technika</strong>
+            <h4>Mocny fundament</h4>
+            <p>Dobra technika daje swobodę, a swoboda daje lepsze rezultaty, większy spokój i większą powtarzalność.</p>
+          </div>
+
+          <div class="result-card reveal">
+            <strong>+ Styl</strong>
+            <h4>Świadomość estetyki</h4>
+            <p>Uczysz się nie tylko wykonywać fryzurę, ale także widzieć formę, detal, proporcję i końcowe wrażenie.</p>
+          </div>
+
+          <div class="result-card reveal">
+            <strong>+ Rozwój</strong>
+            <h4>Wyższy poziom</h4>
+            <p>To krok dla osób, które chcą traktować fryzjerstwo poważnie i budować na nim swoją przyszłość.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="szkolenia">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Oferta szkoleniowa</div>
+          <h2 class="section-title">Szkolenia, które budują prawdziwą jakość pracy</h2>
+          <p class="section-subtitle">
+            Nasze programy są skierowane do osób, które chcą zacząć, uporządkować wiedzę lub wejść na wyższy poziom wykonania.
+            Poniżej przykładowe obszary, wokół których budujemy szkolenia i rozwój uczestników.
+          </p>
+        </div>
+
+        <div class="training-wrap">
+          <article class="training-card reveal">
+            <div class="training-top">
+              <div class="training-badge">Poziom start / rozwój</div>
+              <div class="training-index">01</div>
+            </div>
+            <h4>Fundamenty fryzjerstwa</h4>
+            <p>
+              Idealna ścieżka dla osób, które chcą zacząć świadomie i od początku budować poprawne nawyki pracy,
+              dokładność ruchu oraz wyczucie estetyki.
+            </p>
+            <ul class="training-list">
+              <li>poznanie podstaw techniki i pracy z włosem</li>
+              <li>rozumienie formy, podziałów i precyzji</li>
+              <li>budowanie pewności przy pierwszych usługach</li>
+              <li>praca w standardzie jakościowym, a nie przypadkowym</li>
+            </ul>
+          </article>
+
+          <article class="training-card reveal">
+            <div class="training-top">
+              <div class="training-badge">Poziom premium</div>
+              <div class="training-index">02</div>
+            </div>
+            <h4>Technika i doskonalenie</h4>
+            <p>
+              Dla osób, które już pracują lub uczyły się wcześniej, ale chcą wejść na wyższy poziom dokładności,
+              płynności i profesjonalizmu wykonania.
+            </p>
+            <ul class="training-list">
+              <li>doskonalenie techniki i powtarzalnego efektu</li>
+              <li>lepsza organizacja pracy i większa kontrola</li>
+              <li>świadoma estetyka i nowoczesny styl wykończenia</li>
+              <li>praca z większą lekkością i spokojem</li>
+            </ul>
+          </article>
+
+          <article class="training-card reveal">
+            <div class="training-top">
+              <div class="training-badge">Poziom ambicja / kariera</div>
+              <div class="training-index">03</div>
+            </div>
+            <h4>Rozwój marki fryzjera</h4>
+            <p>
+              Bo samo umieć to jedno. Umieć i budzić zaufanie klientów — to drugie. Pokazujemy także,
+              jak prezentować jakość swojej pracy i rozwijać się pewniej jako specjalista.
+            </p>
+            <ul class="training-list">
+              <li>budowanie profesjonalnego wizerunku</li>
+              <li>większa pewność w kontakcie z klientem</li>
+              <li>świadomość jakości, która przyciąga</li>
+              <li>myślenie o fryzjerstwie jak o przyszłości, nie hobby</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="premium-band reveal">
+          <div>
+            <h5>Chcesz poznać dostępne terminy i szczegóły szkolenia?</h5>
+            <p>
+              Napisz lub zadzwoń. Powiemy Ci, które szkolenie najlepiej pasuje do Twojego poziomu i celu.
+            </p>
+          </div>
+          <a href="#kontakt" class="btn btn-primary">Zapytaj o terminy</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galeria">
+      <div class="container">
+        <div class="gallery-head reveal">
+          <div>
+            <div class="eyebrow">Galeria</div>
+            <h2 class="section-title">Przestrzeń, klimat i detale, które budują doświadczenie premium</h2>
+          </div>
+          <p class="section-subtitle" style="max-width:520px;">
+            Zobacz estetykę Witch Hair Academy — jasną, kobiecą, dopracowaną i spójną z charakterem marki.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item tall reveal">
+            <img src="https://scontent.fgrq1-1.fna.fbcdn.net/v/t39.30808-6/622749777_858370890294177_6522056010892301192_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=gHVwJu4UBKsQ7kNvwGuq4TX&_nc_oc=AdoqXSno3jRxDdf7cLs4klLksvzXh2gZwSt7Qr3VUeZMrNwP_roL_NJFDrFXWF8_p3E&_nc_zt=23&_nc_ht=scontent.fgrq1-1.fna&_nc_gid=pvzAb9bDAh9UpedbC6Ppeg&_nc_ss=7a30f&oh=00_AfxeE2VWBcqVOVMOj_eEhi3cwuhJu4fiR2t4694HG--sgw&oe=69C30107" alt="Galeria Witch Hair Academy 1">
+          </div>
+          <div class="gallery-item reveal">
+            <img src="https://scontent.fgrq1-1.fna.fbcdn.net/v/t39.30808-6/480254062_599655736165695_1969404435064918563_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=nn7tKYWSWdoQ7kNvwGHcO82&_nc_oc=AdpGb-4jLXYCLLt4SkDtiU23kfHudVebJ0WZJU5ZluYqYoMLOp7EnQV_t4EtrUFy56w&_nc_zt=23&_nc_ht=scontent.fgrq1-1.fna&_nc_gid=gkAzeHD1FR_mrI5teMNxbQ&_nc_ss=7a30f&oh=00_AfyZhNs_Go-3CrtgCSk7ZLpFk6SRT6C7cgm_ZktGqcC_uA&oe=69C33212" alt="Galeria Witch Hair Academy 2">
+          </div>
+          <div class="gallery-item reveal">
+            <img src="https://scontent.fgrq1-1.fna.fbcdn.net/v/t39.30808-6/480492680_599655572832378_8182217783531658243_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=O0oxfF3CJEMQ7kNvwHecsK3&_nc_oc=AdpdWNT0z4i_yvNM6poryASb6Smf5d2Gik8DP-xQdm9Rqn_QFwb1BYJE6ipHpQiasZ8&_nc_zt=23&_nc_ht=scontent.fgrq1-1.fna&_nc_gid=bJcnbLCif9HVM_dqIBTITQ&_nc_ss=7a30f&oh=00_Afyor-YbxiTLOZb4pCVx0Hcg-Z3po9PDD0BPt9QHF-24Aw&oe=69C30E9C" alt="Galeria Witch Hair Academy 3">
+          </div>
+          <div class="gallery-item tall reveal">
+            <img src="https://scontent.fgrq1-2.fna.fbcdn.net/v/t39.30808-6/480595220_598833372914598_8890139715817474580_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=IDQay4rXJUUQ7kNvwFTkqfQ&_nc_oc=AdqCK3lneLPXHYscide5lYDzg5TCipmeYuBZAYuoDTkG7Rs7f-3mpO5dv-WO8KzAFfk&_nc_zt=23&_nc_ht=scontent.fgrq1-2.fna&_nc_gid=a6-0zvnpcgHp4EEZxEeg3Q&_nc_ss=7a30f&oh=00_AfyWUZYKh8mE1U5fKlfP4KG26pyIkYEX64k1WcV9q8o_YQ&oe=69C3271B" alt="Galeria Witch Hair Academy 4">
+          </div>
+          <div class="gallery-item wide reveal">
+            <img src="https://scontent.fgrq1-1.fna.fbcdn.net/v/t39.30808-6/471495874_18450050605071261_3953074190019121037_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=13d280&_nc_ohc=aMlidk0eMgUQ7kNvwH-oFw6&_nc_oc=AdrhuUnKbWa3T_YQLRZ6m-Txed_fhADEHy-ls4W_I_sMdZUF6ymdXMBBEiJaXzTVLDk&_nc_zt=23&_nc_ht=scontent.fgrq1-1.fna&_nc_gid=VVMvyZNGaFImPEzfyu7vkg&_nc_ss=7a30f&oh=00_AfwGSl_aFC10FibNauUeWGqo9tsagNji9X6-Zb9xZVkJqA&oe=69C30511" alt="Galeria Witch Hair Academy hero">
+          </div>
+          <div class="gallery-item reveal">
+            <img src="https://scontent.fgrq1-1.fna.fbcdn.net/v/t39.30808-6/480254062_599655736165695_1969404435064918563_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=nn7tKYWSWdoQ7kNvwGHcO82&_nc_oc=AdpGb-4jLXYCLLt4SkDtiU23kfHudVebJ0WZJU5ZluYqYoMLOp7EnQV_t4EtrUFy56w&_nc_zt=23&_nc_ht=scontent.fgrq1-1.fna&_nc_gid=gkAzeHD1FR_mrI5teMNxbQ&_nc_ss=7a30f&oh=00_AfyZhNs_Go-3CrtgCSk7ZLpFk6SRT6C7cgm_ZktGqcC_uA&oe=69C33212" alt="Galeria Witch Hair Academy 5">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="opinie">
+      <div class="container">
+        <div class="story-layout">
+          <div class="story-card reveal">
+            <div class="eyebrow">Co mówią uczestnicy</div>
+            <h3>100% poleca — i to nie dzieje się przypadkiem</h3>
+            <p>
+              Dobre opinie nie biorą się z obietnic. Biorą się z doświadczenia. Z tego, jak czujesz się w danym miejscu,
+              jak jesteś prowadzona, ile naprawdę wynosisz i czy po wszystkim masz poczucie: „to był krok, którego potrzebowałam”.
+            </p>
+            <p>
+              Właśnie dlatego Witch Hair Academy budzi tak pozytywny odbiór. Tu liczy się poziom, ale także energia,
+              atmosfera i prawdziwe podejście do rozwoju.
+            </p>
+          </div>
+
+          <div class="story-highlights">
+            <div class="story-highlight reveal">
+              <span>Jakość</span>
+              <strong>Wysoki standard nauki</strong>
+              <p>Uczestnicy czują różnicę w sposobie prowadzenia, estetyce i poziomie dopracowania detali.</p>
+            </div>
+            <div class="story-highlight reveal">
+              <span>Atmosfera</span>
+              <strong>Motywująca przestrzeń</strong>
+              <p>To miejsce, w którym łatwiej uwierzyć w siebie i zrobić kolejny krok bez wewnętrznego hamulca.</p>
+            </div>
+            <div class="story-highlight reveal">
+              <span>Efekt</span>
+              <strong>Praktyczny rozwój</strong>
+              <p>Szkolenie ma sens wtedy, kiedy po nim potrafisz pracować lepiej, a nie tylko wracasz z inspiracją.</p>
+            </div>
+            <div class="story-highlight reveal">
+              <span>Marka</span>
+              <strong>Styl, który zostaje w pamięci</strong>
+              <p>Witch Hair Academy ma swój charakter — kobiecy, wyrazisty i premium. To buduje pierwsze wrażenie od razu.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-wrap">
+          <article class="testimonial reveal">
+            <div>
+              <div class="testimonial-mark">“</div>
+              <p>
+                Czuć, że to miejsce robi się z pasją. Wszystko jest estetyczne, dopracowane i daje mega motywację do rozwoju.
+              </p>
+            </div>
+            <div>
+              <strong>Uczestniczka szkolenia</strong>
+              <span>Witch Hair Academy</span>
+            </div>
+          </article>
+
+          <article class="testimonial reveal">
+            <div>
+              <div class="testimonial-mark">“</div>
+              <p>
+                Najbardziej podobało mi się to, że nie było chaosu. Wszystko miało sens, a po szkoleniu naprawdę czułam większą pewność.
+              </p>
+            </div>
+            <div>
+              <strong>Osoba rozwijająca swój warsztat</strong>
+              <span>Witch Hair Academy</span>
+            </div>
+          </article>
+
+          <article class="testimonial reveal">
+            <div>
+              <div class="testimonial-mark">“</div>
+              <p>
+                To nie jest zwykły kurs „na szybko”. To miejsce, które daje jakość, klimat i poczucie, że warto iść dalej w tym kierunku.
+              </p>
+            </div>
+            <div>
+              <strong>Kursantka</strong>
+              <span>Witch Hair Academy</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section price-section">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Ważna decyzja</div>
+          <h2 class="section-title">Najlepszy moment na rozwój rzadko przychodzi „kiedyś”</h2>
+          <p class="section-subtitle">
+            Najczęściej przychodzi właśnie wtedy, kiedy czujesz, że chcesz więcej. Nie odkładaj tego, co może realnie otworzyć Ci nowy etap.
+          </p>
+        </div>
+
+        <div class="price-layout">
+          <div class="price-note reveal">
+            <h3>Jeśli myślisz o szkoleniu — to jest dobry moment, żeby zrobić pierwszy krok</h3>
+            <p>
+              Talent bez działania zostaje tylko potencjałem. A potencjał potrzebuje przestrzeni, kierunku i odpowiedniego prowadzenia.
+              Witch Hair Academy została stworzona właśnie po to — żeby zamienić chęci w umiejętności i pasję w realny rozwój.
+            </p>
+            <p>
+              Zadzwoń lub napisz, a powiemy Ci, jak wygląda zapis, dostępność miejsc i które szkolenie będzie dla Ciebie najlepsze.
+            </p>
+            <ul>
+              <li>indywidualne podejście do poziomu i celu uczestnika</li>
+              <li>przemyślana nauka w eleganckiej, inspirującej przestrzeni</li>
+              <li>fryzjerstwo pokazane jako jakość, estetyka i konkretna umiejętność</li>
+              <li>kontakt bez zbędnego czekania — szybko i konkretnie</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-primary">Zapytaj o zapis</a>
+          </div>
+
+          <div class="faq-grid reveal">
+            <div class="faq-item active">
+              <button class="faq-question">
+                <span>Czy szkolenia są tylko dla osób zaawansowanych?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                Nie. To miejsce jest zarówno dla osób, które dopiero zaczynają swoją drogę, jak i dla tych,
+                które chcą uporządkować wiedzę i wejść na wyższy poziom wykonania.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Czy mogę zapytać o termin i szczegóły przed zapisem?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                Tak. Najlepiej skontaktować się telefonicznie lub przez wiadomość — wtedy można dobrać szkolenie
+                i sprawdzić aktualne możliwości zapisów.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Czy akademia pomaga dobrać szkolenie do mojego poziomu?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                Oczywiście. Nie każdy potrzebuje tego samego etapu nauki. Dlatego najpierw warto porozmawiać o Twoim celu,
+                obecnym poziomie i tym, co chcesz osiągnąć.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Co wyróżnia Witch Hair Academy?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                Połączenie estetyki, jakości, kobiecego charakteru marki i praktycznego podejścia do fryzjerstwa.
+                To miejsce, które ma klimat, ale przede wszystkim daje realny rozwój.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-band reveal">
+          <div>
+            <h3>Zapisz się na szkolenie i zacznij tworzyć piękno z większą pewnością</h3>
+            <p>
+              To może być początek Twojej nowej drogi w branży beauty. Napisz lub zadzwoń i sprawdź, jak możesz dołączyć do Witch Hair Academy.
+            </p>
+          </div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;">
+            <a href="tel:+31615295072" class="btn btn-primary">Zadzwoń teraz</a>
+            <a href="#kontakt" class="btn btn-secondary">Przejdź do kontaktu</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="kontakt">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Kontakt i zapisy</div>
+          <h2 class="section-title">Porozmawiajmy o Twoim rozwoju</h2>
+          <p class="section-subtitle">
+            Chcesz zapisać się na szkolenie, zapytać o termin albo po prostu dowiedzieć się, czy to miejsce jest dla Ciebie?
+            Skontaktuj się z nami — szybko, konkretnie i bez stresu.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <div class="contact-panel reveal">
+            <h3>Witch Hair Academy</h3>
+            <p>
+              Tutaj zaczyna się Twoja magia. Uczymy fryzjerstwa, które łączy technikę, pasję i styl — dla każdego,
+              kto chce tworzyć piękno i rozwijać się w branży z wyczuciem jakości.
+            </p>
+
+            <div class="contact-details">
+              <div class="contact-box">
+                <span>Telefon</span>
+                <a href="tel:+31615295072">+31 6 15295072</a>
+              </div>
+              <div class="contact-box">
+                <span>Adres</span>
+                <strong>Stationsplein 6, Helmond, Netherlands</strong>
+              </div>
+              <div class="contact-box">
+                <span>Opinie</span>
+                <strong>100% poleca · 11 opinii</strong>
+              </div>
+            </div>
+
+            <div class="contact-mini-grid">
+              <div class="contact-mini">
+                <strong>Szkolenia</strong>
+                <p>Rozwój dla osób początkujących i ambitnych.</p>
+              </div>
+              <div class="contact-mini">
+                <strong>Atmosfera</strong>
+                <p>Elegancka przestrzeń, w której chce się rosnąć.</p>
+              </div>
+              <div class="contact-mini">
+                <strong>Poziom</strong>
+                <p>Technika, jakość i estetyka w jednym miejscu.</p>
+              </div>
+              <div class="contact-mini">
+                <strong>Start</strong>
+                <p>Zrób pierwszy krok i zapytaj o dostępne terminy.</p>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:30px;">
+              <a href="tel:+31615295072" class="btn btn-primary">Zadzwoń</a>
+              <a href="https://maps.google.com/?q=Stationsplein+6,+Helmond,+Netherlands" target="_blank" class="btn btn-secondary">Otwórz mapę</a>
+            </div>
+          </div>
+
+          <div class="map-wrap reveal">
+            <iframe
+              src="https://www.google.com/maps?q=Stationsplein%206,%20Helmond,%20Netherlands&z=15&output=embed"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img src="https://scontent.fgrq1-1.fna.fbcdn.net/v/t39.30808-6/649700960_892878990176700_1598060437175543899_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=2a1932&_nc_ohc=XepxeuOSV9IQ7kNvwGBMbTF&_nc_oc=AdoWpBTTqTvJWr8MiYdC3ioZC-Vy6gWwxNzlP-zMqLNcOqwiB0TQ3nDRRx-5F94LE6Q&_nc_zt=23&_nc_ht=scontent.fgrq1-1.fna&_nc_gid=biK3RTxxyrMw3RIv7QkP1g&_nc_ss=7a30f&oh=00_Afz7Df7PU-RphD_27V8Th7coU8twxMgMwjQpj92nXWUjJw&oe=69C320F0" alt="Witch Hair Academy logo footer">
+          <span>Witch Hair Academy</span>
+        </div>
+        <div>Akademia fryzjerska · Stationsplein 6, Helmond, Netherlands</div>
+        <div><a href="tel:+31615295072">+31 6 15295072</a></div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    },{threshold:0.14});
+
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item=>{
+      item.querySelector('.faq-question').addEventListener('click', ()=>{
+        item.classList.toggle('active');
+      });
+    });
+
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileToggle.addEventListener('click', ()=>{
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link=>{
+      link.addEventListener('click', ()=>{
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
