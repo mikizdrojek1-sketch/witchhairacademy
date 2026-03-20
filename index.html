@@ -1439,7 +1439,24 @@
       }
     }
 
-    @media (max-width: 760px){
+
+      @media (max-width: 760px){
+  .nav-cta{
+    gap:8px;
+  }
+
+  .nav-cta .btn{
+    min-height:46px;
+    padding:0 14px;
+    font-size:.68rem;
+    letter-spacing:.03em;
+    width:auto;
+  }
+
+  .nav-cta .btn-primary{
+    padding:0 12px;
+  }
+}
       :root{
         --section-pad:82px;
       }
@@ -1544,7 +1561,11 @@
       .hero-actions{
         flex-direction:column;
       }
+    .hero-floating{
+  display:none;
+}
     }
+    
   </style>
 </head>
 <body>
@@ -1584,7 +1605,7 @@
 
         <div class="nav-cta">
           <a href="tel:+31615295072" class="btn btn-secondary">Zadzwoń</a>
-          <a href="#kontakt" class="btn btn-primary">Zapisz się</a>
+          <a href="#kontakt" class="btn btn-primary">Zapis</a>
           <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
             <span></span>
           </button>
